@@ -28,6 +28,11 @@ import (
 	"time"
 )
 
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+}
+
 // WebSocketController handles WebSocket requests.
 type WebSocketController struct {
 	baseController
@@ -92,7 +97,7 @@ func (this *WebSocketController) Tail() {
 
 	defer watcher.Close()
 
-	ws, err := websocket.Upgrade(this.Ctx.ResponseWriter, this.Ctx.Request, nil, 1024, 1024)
+	ws, err := upgrader.Upgrade(this.Ctx.ResponseWriter, this.Ctx.Request, nil)
 	fmt.Println(ws)
 	if _, ok := err.(websocket.HandshakeError); ok {
 		http.Error(this.Ctx.ResponseWriter, "Not a websocket handshake", 400)
