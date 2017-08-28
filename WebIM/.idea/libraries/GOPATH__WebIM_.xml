@@ -1,0 +1,76 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;WebIM&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../tempconv" />
+      <root url="file://$PROJECT_DIR$/../../../../test" />
+      <root url="file://$PROJECT_DIR$/../../../../ocean-dashboard" />
+      <root url="file://$PROJECT_DIR$/../../../../chronos-job-test" />
+      <root url="file://$PROJECT_DIR$/../../../../deploy.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../tmp" />
+      <root url="file://$PROJECT_DIR$/../../../../hello" />
+      <root url="file://$PROJECT_DIR$/../../../../ch2" />
+      <root url="file://$PROJECT_DIR$/../../../../git.pt.xiaomi.com" />
+      <root url="file://$PROJECT_DIR$/../../../../seal" />
+      <root url="file://$PROJECT_DIR$/../../../../elb-api" />
+      <root url="file://$PROJECT_DIR$/../../../../dolphin" />
+      <root url="file://$PROJECT_DIR$/../../../../elb" />
+      <root url="file://$PROJECT_DIR$/../../../../seal.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../github.com.bak2" />
+      <root url="file://$PROJECT_DIR$/../../../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../../golang.org.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../bitbucket.org.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../elb-web" />
+      <root url="file://$PROJECT_DIR$/../../../../cloud.google.com.bak" />
+      <root url="file://$PROJECT_DIR$/../../.." />
+      <root url="file://$PROJECT_DIR$/../../../../v9.git.n.xiaomi.com" />
+      <root url="file://$PROJECT_DIR$/../../../../elbdaemon" />
+      <root url="file://$PROJECT_DIR$/../../../../sdk" />
+      <root url="file://$PROJECT_DIR$/../../../../libs" />
+      <root url="file://$PROJECT_DIR$/../../../../bifrost" />
+      <root url="file://$PROJECT_DIR$/../../../../deploysdk" />
+      <root url="file://$PROJECT_DIR$/../../../../k8s.io" />
+      <root url="file://$PROJECT_DIR$/../../../../requests" />
+      <root url="file://$PROJECT_DIR$/../../../../ls" />
+      <root url="file://$PROJECT_DIR$/../../../../deploy" />
+      <root url="file://$PROJECT_DIR$/../../../../WebIM" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../../tempconv" />
+      <root url="file://$PROJECT_DIR$/../../../../test" />
+      <root url="file://$PROJECT_DIR$/../../../../ocean-dashboard" />
+      <root url="file://$PROJECT_DIR$/../../../../chronos-job-test" />
+      <root url="file://$PROJECT_DIR$/../../../../deploy.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../tmp" />
+      <root url="file://$PROJECT_DIR$/../../../../hello" />
+      <root url="file://$PROJECT_DIR$/../../../../ch2" />
+      <root url="file://$PROJECT_DIR$/../../../../git.pt.xiaomi.com" />
+      <root url="file://$PROJECT_DIR$/../../../../seal" />
+      <root url="file://$PROJECT_DIR$/../../../../elb-api" />
+      <root url="file://$PROJECT_DIR$/../../../../dolphin" />
+      <root url="file://$PROJECT_DIR$/../../../../elb" />
+      <root url="file://$PROJECT_DIR$/../../../../seal.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../github.com.bak2" />
+      <root url="file://$PROJECT_DIR$/../../../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../../golang.org.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../bitbucket.org.bak" />
+      <root url="file://$PROJECT_DIR$/../../../../elb-web" />
+      <root url="file://$PROJECT_DIR$/../../../../cloud.google.com.bak" />
+      <root url="file://$PROJECT_DIR$/../../.." />
+      <root url="file://$PROJECT_DIR$/../../../../v9.git.n.xiaomi.com" />
+      <root url="file://$PROJECT_DIR$/../../../../elbdaemon" />
+      <root url="file://$PROJECT_DIR$/../../../../sdk" />
+      <root url="file://$PROJECT_DIR$/../../../../libs" />
+      <root url="file://$PROJECT_DIR$/../../../../bifrost" />
+      <root url="file://$PROJECT_DIR$/../../../../deploysdk" />
+      <root url="file://$PROJECT_DIR$/../../../../k8s.io" />
+      <root url="file://$PROJECT_DIR$/../../../../requests" />
+      <root url="file://$PROJECT_DIR$/../../../../ls" />
+      <root url="file://$PROJECT_DIR$/../../../../deploy" />
+      <root url="file://$PROJECT_DIR$/../../../../WebIM" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

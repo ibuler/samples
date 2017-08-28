@@ -2,7 +2,7 @@ var socket;
 
 $(document).ready(function () {
     // Create a socket
-    socket = new WebSocket('ws://' + window.location.host + '/ws/join?uname=' + $('#uname').text());
+    socket = new WebSocket('ws://' + window.location.host + '/ws/tail?uname=' + $('#uname').text());
     // Message received on the socket
     socket.onmessage = function (event) {
         var data = JSON.parse(event.data);

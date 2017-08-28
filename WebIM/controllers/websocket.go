@@ -15,12 +15,17 @@
 package controllers
 
 import (
+	"bufio"
 	"encoding/json"
-	"net/http"
-
+	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/gorilla/websocket"
 	"github.com/beego/samples/WebIM/models"
+	"github.com/fsnotify/fsnotify"
+	"github.com/gorilla/websocket"
+	"io"
+	"net/http"
+	"os"
+	"time"
 )
 
 // WebSocketController handles WebSocket requests.
@@ -71,6 +76,102 @@ func (this *WebSocketController) Join() {
 			return
 		}
 		publish <- newEvent(models.EVENT_MESSAGE, uname, string(p))
+	}
+}
+
+func (this *WebSocketController) Tail() {
+	//jobName := this.GetString("job")
+	logFilePath := "/tmp/foo"
+	ch := make(chan struct{})
+
+	watcher, err := fsnotify.NewWatcher()
+	if err != nil {
+		beego.Error("Cannot new fsnotify watcher")
+		return
+	}
+
+	defer watcher.Close()
+
+	ws, err := websocket.Upgrade(this.Ctx.ResponseWriter, this.Ctx.Request, nil, 1024, 1024)
+	fmt.Println(ws)
+	if _, ok := err.(websocket.HandshakeError); ok {
+		http.Error(this.Ctx.ResponseWriter, "Not a websocket handshake", 400)
+		return
+	} else if err != nil {
+		beego.Error("Cannot setup WebSocket connection:", err)
+		return
+	}
+
+	go func() {
+		// 等到文件存在，然后再watch
+		for {
+			if _, err := os.Stat(logFilePath); err != nil {
+				time.Sleep(1 * time.Second)
+				continue
+			} else {
+				if err = watcher.Add(logFilePath); err != nil {
+					beego.Error("log")
+					continue
+				} else {
+					break
+				}
+			}
+		}
+
+		// 监听watch事件
+		for {
+			select {
+			case event := <-watcher.Events:
+				if event.Op&fsnotify.Write == fsnotify.Write {
+					ch <- struct{}{}
+				}
+			case err := <-watcher.Errors:
+				beego.Error("watch have error: %s" + err.Error())
+			}
+		}
+	}()
+
+	var inputReader *bufio.Reader
+	for {
+		inputFile, err := os.Open(logFilePath)
+		if err != nil {
+			continue
+		}
+		defer inputFile.Close()
+		inputReader = bufio.NewReader(inputFile)
+		break
+	}
+
+	for {
+		select {
+		case <-ch:
+			fmt.Println("Get event from ch: ")
+			sum := 0
+			{
+				for {
+					sum += 1
+					fmt.Println(sum)
+					text, err := inputReader.ReadString('\n')
+					fmt.Println(text)
+					if err == io.EOF {
+						break
+					}
+					event := models.Event{
+						Type:      models.EVENT_MESSAGE,
+						User:      "guang",
+						Timestamp: int(time.Now().Unix()),
+						Content:   text,
+					}
+					data, err := json.Marshal(event)
+					if err != nil {
+						beego.Error("Fail to marshal event:", err)
+						return
+					}
+
+					ws.WriteMessage(websocket.TextMessage, data)
+				}
+			}
+		}
 	}
 }
 

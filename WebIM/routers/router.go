@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"github.com/beego/samples/WebIM/controllers"
 	"github.com/astaxie/beego"
+	"github.com/beego/samples/WebIM/controllers"
 )
 
 func init() {
@@ -19,5 +19,6 @@ func init() {
 	// WebSocket.
 	beego.Router("/ws", &controllers.WebSocketController{})
 	beego.Router("/ws/join", &controllers.WebSocketController{}, "get:Join")
+	beego.Router("/ws/tail", &controllers.WebSocketController{}, "get:Tail")
 
 }
